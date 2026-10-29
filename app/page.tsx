@@ -17,10 +17,10 @@ export default function Accueil() {
       <section className="heros heros--rose">
         <div className="wrap deux-col" style={{ paddingBlock: "clamp(40px, 6vw, 88px)" }}>
           <div style={{ position: "relative" }}>
-            <h1 className="titre" style={{ fontSize: "clamp(72px, 10vw, 150px)", lineHeight: 0.92 }}>
+            <h1 className="titre" style={{ fontSize: "clamp(56px, 7.6vw, 116px)", lineHeight: 1.02 }}>
               Adorables.<br />Attention,<br />ça mord.
             </h1>
-            <p style={{ fontSize: 20, fontWeight: 500, maxWidth: 460, margin: "20px 0 32px" }}>{site.slogan}</p>
+            <p style={{ fontSize: 20, fontWeight: 500, maxWidth: 460, margin: "32px 0 32px" }}>{site.slogan}</p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
               <Link href="/boutique" className="btn btn--vert">Voir la boutique</Link>
               <Link href="/a-propos" className="btn btn--blanc">Qui suis-je ?</Link>
