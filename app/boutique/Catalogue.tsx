@@ -18,10 +18,20 @@ const norm = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCa
 export function Catalogue() {
   const params = useSearchParams();
   const router = useRouter();
-  const cat = (params.get("categorie") as Categorie | null) ?? null;
+  // Un seul filtre actif à la fois : Tout, Nouveautés ou une catégorie
+  const filtre: "tout" | "nouveau" | Categorie =
+    params.get("nouveau") === "1" ? "nouveau" : ((params.get("categorie") as Categorie | null) ?? "tout");
   const tri: Tri = (params.get("tri") as Tri) in tris ? (params.get("tri") as Tri) : "nouveautes";
   const q = params.get("q") ?? "";
-  const nouveau = params.get("nouveau") === "1"; // filtre « Nouveautés » : uniquement les produits nouveau: true
+
+  function choisirFiltre(f: typeof filtre) {
+    const p = new URLSearchParams(params.toString());
+    p.delete("nouveau");
+    p.delete("categorie");
+    if (f === "nouveau") p.set("nouveau", "1");
+    else if (f !== "tout") p.set("categorie", f);
+    router.replace(`/boutique${p.size ? `?${p}` : ""}`, { scroll: false });
+  }
 
   function maj(cle: string | string[], valeur: string | null) {
     const p = new URLSearchParams(params.toString());
@@ -33,7 +43,7 @@ export function Catalogue() {
   }
 
   const liste = useMemo(() => {
-    let l = produits.filter((p) => (!cat || p.categorie === cat) && (!nouveau || p.nouveau));
+    let l = produits.filter((p) => filtre === "tout" || (filtre === "nouveau" ? p.nouveau : p.categorie === filtre));
     if (q) l = l.filter((p) => norm(`${p.nom} ${p.description} ${p.categorie}`).includes(norm(q)));
     l = [...l].sort((a, b) => {
       if (tri === "prix-croissant") return a.prix - b.prix;
@@ -42,16 +52,16 @@ export function Catalogue() {
     });
     // les produits épuisés passent en fin de liste
     return l.sort((a, b) => Number(!!a.epuise) - Number(!!b.epuise));
-  }, [cat, tri, q, nouveau]);
+  }, [filtre, tri, q]);
 
   return (
     <div className="wrap">
       <div className="outils">
         <div className="puces" role="group" aria-label="Filtrer par catégorie">
-          <button className="puce" aria-pressed={!cat && !nouveau} onClick={() => maj(["categorie", "nouveau"], null)}>Tout</button>
-          <button className="puce" aria-pressed={nouveau} onClick={() => maj("nouveau", nouveau ? null : "1")}>✦ Nouveautés</button>
+          <button className="puce" aria-pressed={filtre === "tout"} onClick={() => choisirFiltre("tout")}>Tout</button>
+          <button className="puce" aria-pressed={filtre === "nouveau"} onClick={() => choisirFiltre("nouveau")}>✦ Nouveautés</button>
           {categories.map((c) => (
-            <button key={c.id} className="puce" aria-pressed={cat === c.id} onClick={() => maj("categorie", c.id)}>
+            <button key={c.id} className="puce" aria-pressed={filtre === c.id} onClick={() => choisirFiltre(c.id)}>
               {c.label}
             </button>
           ))}
