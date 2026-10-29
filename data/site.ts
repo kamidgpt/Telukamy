@@ -7,14 +7,14 @@
 export const site = {
   nom: "Ton Studio",
   slogan: "Illustrations, prints et stickers faits main.",
-  prenom: "[Prénom]",
-  email: "contact@tonstudio.fr",
-  instagram: { pseudo: "@ton_insta", url: "https://instagram.com/ton_insta" },
-  tiktok: "https://tiktok.com/@ton_insta",
-  pinterest: "https://pinterest.com/ton_insta",
+  prenom: "Camille",
+  email: "telukamy.shop@gmail.com",
+  instagram: { pseudo: "@ton_insta", url: "https://www.instagram.com/" },
+  tiktok: "https://tiktok.com/",
+  pinterest: "https://pinterest.com/",
 
   // Texte qui défile dans le bandeau rose tout en haut
-  bandeau: "LIVRAISON OFFERTE DÈS 60 €  ✦  ENVOI SOUS 48 H  ✦  FAIT MAIN EN FRANCE",
+  bandeau: "LIVRAISON OFFERTE DÈS 60 €  ✦  FAIT MAIN EN FRANCE",
 };
 
 // Livraison — montants en CENTIMES (490 = 4,90 €)
@@ -31,7 +31,7 @@ export const livraison = {
 export const evenements = [
   { mois: "DÉC", nom: "Marché de Noël", lieu: "Bordeaux", dates: "13 – 15 décembre", lien: "" },
   { mois: "JAN", nom: "Salon Créateurs", lieu: "Paris", dates: "24 – 26 janvier", lien: "" },
-  { mois: "FÉV", nom: "Marché d’hiver", lieu: "Lyon", dates: "8 – 9 février", lien: "" },
+  { mois: "?", nom: "À confirmer", lieu: "?", dates: "À confirmer", lien: "" },
 ];
 
 export const boutiquesPartenaires = [
