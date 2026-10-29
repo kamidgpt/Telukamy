@@ -5,7 +5,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
-  nom: "Ton Studio",
+  nom: "Telukamy",
   slogan: "Illustrations, prints et stickers faits main.",
   prenom: "Camille",
   email: "telukamy.shop@gmail.com",
