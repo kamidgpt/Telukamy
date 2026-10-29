@@ -28,7 +28,7 @@ export default function PageConfidentialite() {
 
           <h2 className="titre">Prestataires</h2>
           <p>
-            Vercel (hébergement du site), Stripe (paiement), Resend (envoi des emails du formulaire). Ces services
+            Vercel (hébergement du site), Stripe (paiement), Google / Gmail (réception des messages du formulaire de contact), Brevo (gestion de la newsletter). Ces services
             peuvent traiter des données hors de l’Union européenne, dans le cadre de garanties prévues par le RGPD.
           </p>
 

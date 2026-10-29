@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 import { site } from "@/data/site";
 
-// Envoie les messages du formulaire de contact (et les inscriptions newsletter)
-// dans ta boîte mail, via le service gratuit Resend (resend.com).
-// Variables à renseigner dans Vercel : RESEND_API_KEY et CONTACT_EMAIL.
+// Envoie les messages du formulaire de contact
+// dans ta boîte Gmail, gratuitement, via ton propre compte Gmail.
+// Variables à renseigner dans Vercel : GMAIL_USER et GMAIL_APP_PASSWORD
+// (mot de passe d'application à 16 caractères, voir le README).
+
+export const runtime = "nodejs";
 
 const echapper = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -31,9 +35,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ erreur: "Merci de remplir ton nom et ton message." }, { status: 400 });
   }
 
-  const cle = process.env.RESEND_API_KEY;
-  const destinataire = process.env.CONTACT_EMAIL || site.email;
-  if (!cle) {
+  const gmail = process.env.GMAIL_USER;
+  const motDePasse = process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, ""); // Google l'affiche avec des espaces
+  if (!gmail || !motDePasse) {
     return NextResponse.json(
       { erreur: `Le formulaire n’est pas encore branché. Écris-moi directement à ${site.email}.` },
       { status: 503 },
@@ -49,21 +53,18 @@ export async function POST(req: Request) {
          <p><strong>Sujet :</strong> ${echapper(sujet || "—")}</p>
          <p style="white-space:pre-wrap">${echapper(message)}</p>`;
 
-  const r = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${cle}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from: process.env.CONTACT_FROM || `${site.nom} <onboarding@resend.dev>`,
-      to: [destinataire],
-      reply_to: email,
+  try {
+    const transport = nodemailer.createTransport({ service: "gmail", auth: { user: gmail, pass: motDePasse } });
+    await transport.sendMail({
+      from: `${site.nom} <${gmail}>`,
+      to: process.env.CONTACT_EMAIL || gmail, // par défaut : ta propre boîte Gmail
+      replyTo: type === "contact" ? `${nom} <${email}>` : email, // « Répondre » écrit directement à la personne
       subject: objet,
       html,
-    }),
-  }).catch(() => null);
-
-  if (!r?.ok) {
-    console.error("Erreur Resend :", r?.status, await r?.text().catch(() => ""));
+    });
+    return NextResponse.json({ ok: true });
+  } catch (e) {
+    console.error("Erreur envoi Gmail :", e);
     return NextResponse.json({ erreur: `L’envoi a échoué. Écris-moi directement à ${site.email}.` }, { status: 502 });
   }
-  return NextResponse.json({ ok: true });
 }

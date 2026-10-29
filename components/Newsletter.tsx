@@ -11,10 +11,10 @@ export function Newsletter() {
     const form = e.currentTarget;
     const email = new FormData(form).get("email");
     setEtat("envoi");
-    const r = await fetch("/api/contact", {
+    const r = await fetch("/api/newsletter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: "newsletter", email }),
+      body: JSON.stringify({ email }),
     }).catch(() => null);
     const json = await r?.json().catch(() => ({}));
     if (r?.ok) {
@@ -23,7 +23,7 @@ export function Newsletter() {
       form.reset();
     } else {
       setEtat("erreur");
-      // affiche la vraie raison (ex. : formulaire pas encore branché à Resend)
+      // affiche la vraie raison (ex. : newsletter pas encore branchée à Brevo)
       setMessage(json?.erreur || "Oups, l’inscription n’a pas marché. Réessaie un peu plus tard.");
     }
   }
