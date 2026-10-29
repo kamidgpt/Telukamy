@@ -18,7 +18,7 @@ export default function Accueil() {
         <div className="wrap deux-col" style={{ paddingBlock: "clamp(40px, 6vw, 88px)" }}>
           <div style={{ position: "relative" }}>
             <h1 className="titre" style={{ fontSize: "clamp(72px, 10vw, 150px)", lineHeight: 0.92 }}>
-              Des dessins<br />qui font<br />XOXO
+              Adorables.<br />Attention,<br />ça mord.
             </h1>
             <p style={{ fontSize: 20, fontWeight: 500, maxWidth: 460, margin: "20px 0 32px" }}>{site.slogan}</p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
