@@ -59,7 +59,7 @@ main { min-height: 50vh; }
 /* ── En-tête ────────────────────────────────── */
 .entete { position: sticky; top: 0; z-index: 30; background: var(--blanc); border-bottom: var(--trait); }
 .entete__in { display: flex; align-items: center; gap: 24px; height: 72px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--titre); font-size: 34px; text-transform: uppercase; white-space: nowrap; }
+.logo { display: flex; align-items: center; gap: 4px; text-decoration: none; font-family: var(--titre); font-size: 34px; text-transform: uppercase; white-space: nowrap; }
 .logo svg { width: 30px; height: 30px; flex: none; }
 .nav { display: flex; align-items: center; gap: clamp(14px, 2.6vw, 44px); margin-left: auto; }
 .nav a, .nav button.lien { font-family: var(--titre); font-size: 19px; text-transform: uppercase; text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap; }
