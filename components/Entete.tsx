@@ -54,7 +54,7 @@ export function Entete() {
           <svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true"><path d="M1 2h20M1 9h20M1 16h20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>
         </button>
         <Link href="/" className="logo">
-          <img src="/logo.svg" alt="" style={{ height: 32, width: "auto" }} />
+          <img src="/logo.svg" alt="" style={{ height: 40, width: "auto" }} />
           {site.nom}
         </Link>
         <nav className={`nav ${menu ? "ouvert" : ""}`} aria-label="Navigation principale">
