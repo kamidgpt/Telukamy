@@ -78,7 +78,12 @@ export default function PagePanier() {
                 </div>
                 <div className="ligne__droite">
                   <span className="ligne__prix">{prix(produit.prix * qte)}</span>
-                  <button className="retirer" onClick={() => retirer(slug)}>Retirer</button>
+                  <button className="retirer" onClick={() => retirer(slug)} aria-label={`Retirer ${produit.nom} du panier`} title="Retirer du panier">
+                    {/* icône poubelle */}
+                    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style={{ display: "block" }}>
+                      <path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
                 </div>
               </div>
             ))}
