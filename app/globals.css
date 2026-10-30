@@ -187,7 +187,7 @@ label.etiquette { display: block; font-family: var(--titre); font-size: 18px; te
 .fiche ul { padding-left: 20px; }
 .fiche .achat { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin: 28px 0; }
 .fil { font-family: var(--titre); text-transform: uppercase; font-size: 17px; padding-top: 44px; }
-.fil a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.fil a { text-decoration: none; text-decoration-thickness: 2px; }
 .fil a:hover { color: var(--rose-fonce); }
 @media (max-width: 860px) { .fiche { grid-template-columns: 1fr; } }
 
