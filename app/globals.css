@@ -175,7 +175,7 @@ label.etiquette { display: block; font-family: var(--titre); font-size: 18px; te
 .vide-img { font-family: var(--marker); font-size: 22px; text-transform: uppercase; }
 
 /* ── Fiche produit ─────────────────────────── */
-.fiche { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 6vw, 96px); padding-block: 56px 96px; align-items: start; }
+.fiche { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 6vw, 96px); padding-block: 20px 96px; align-items: start; }
 .fiche__img { aspect-ratio: 4 / 5; overflow: hidden; display: grid; place-items: center; position: relative; }
 .fiche__img img { width: 100%; height: 100%; object-fit: cover; }
 .fiche__mini { display: flex; gap: 12px; margin-top: 20px; }
@@ -186,8 +186,9 @@ label.etiquette { display: block; font-family: var(--titre); font-size: 18px; te
 .fiche .prix-grand { font-weight: 800; font-size: 32px; color: var(--violet); margin: 10px 0 20px; }
 .fiche ul { padding-left: 20px; }
 .fiche .achat { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin: 28px 0; }
-.fil { font-family: var(--titre); text-transform: uppercase; font-size: 17px; padding-top: 28px; }
-.fil a { text-decoration: none; }
+.fil { font-family: var(--titre); text-transform: uppercase; font-size: 17px; padding-top: 44px; }
+.fil a { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.fil a:hover { color: var(--rose-fonce); }
 @media (max-width: 860px) { .fiche { grid-template-columns: 1fr; } }
 
 .qte { display: inline-flex; align-items: center; border: var(--trait); border-radius: 999px; background: var(--blanc); overflow: hidden; }
