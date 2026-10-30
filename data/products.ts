@@ -60,10 +60,10 @@ export const produits: Produit[] = [
     nom: "Stickers Cœurs",
     categorie: "stickers",
     prix: 800,
-    format: "Lot de 4",
+    format: "Lot de 3",
     description:
-      "Quatre stickers cœur vichy violet, contours vert néon. Vinyle résistant à l’eau, parfait pour ordi, gourde ou carnet.",
-    details: ["4 stickers ≈ 7 cm", "Vinyle mat waterproof", "Livrés dans leur pochette XOXO"],
+      "Trois stickers cœur vichy violet, contours vert néon. Vinyle résistant à l’eau, parfait pour ordi, gourde ou carnet.",
+    details: ["3 stickers ≈ 7 cm", "Vinyle mat waterproof", "Livrés dans leur pochette XOXO"],
     images: ["/produits/stickers-coeurs.jpg", "/produits/stickers-coeurs-detail.jpg"],
     nouveau: true,
     ajouteLe: "2026-10-18",
