@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { produits, trouverProduit, categories } from "@/data/products";
 import { prix } from "@/lib/format";
 import { CarteProduit } from "@/components/CarteProduit";
+import { Separateur } from "@/components/Separateur";
 import { Galerie } from "./Galerie";
 import { AjouterAuPanier } from "./AjouterAuPanier";
 
@@ -26,7 +27,8 @@ export default async function PageProduit({ params }: { params: Promise<{ slug: 
   return (
     <>
       <div className="wrap fil">
-        <Link href="/boutique">Boutique</Link> ✦{" "}
+        <Link href="/boutique">Boutique</Link>
+        <Separateur />
         <Link href={`/boutique?categorie=${produit.categorie}`}>{cat?.label}</Link>
       </div>
       <div className="wrap fiche">
@@ -43,7 +45,7 @@ export default async function PageProduit({ params }: { params: Promise<{ slug: 
             </div>
           ) : null}
           <p style={{ color: "var(--gris)", fontSize: 15, marginTop: 22 }}>
-            Expédié sous 48 h ✦ Livraison offerte dès 60 € ✦ <Link href="/livraison-faq">Toutes les infos livraison</Link>
+            Expédié sous 48 h <Separateur /> Livraison offerte dès 60 € <Separateur /> <Link href="/livraison-faq">Toutes les infos livraison</Link>
           </p>
         </div>
       </div>
