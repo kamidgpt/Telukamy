@@ -24,9 +24,9 @@ export default function PageAPropos() {
               l’impression. Parle de ce qui te rend différente.
             </p>
             <div className="tuiles">
-              <div className="boite tuile"><strong>Papier</strong>250 g mat</div>
-              <div className="boite tuile"><strong>Local</strong>Fait en France</div>
-              <div className="boite tuile"><strong>Soin</strong>Chaque colis</div>
+              <div className="boite tuile"><strong>FAIT MAIN</strong>Dessiné, imprimé et découpé chez moi</div>
+              <div className="boite tuile"><strong>100 % ORIGINAL</strong>Mes persos, zéro copie</div>
+              <div className="boite tuile"><strong>ENVOI SOIGNÉ</strong>Un petit cadeau glissé dans chaque colis</div>
             </div>
           </div>
         </div>
