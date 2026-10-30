@@ -51,7 +51,7 @@ export default function Accueil() {
       <section className="section section--noire">
         <div className="wrap deux-col">
           <div className="boite penche" style={{ position: "relative", aspectRatio: "3500 / 2300", overflow: "hidden", borderColor: "var(--blanc)", boxShadow: "8px 8px 0 var(--vert)" }}>
-            <Image src="/produits/stickers-coeurs.jpg" alt="Stickers cœurs dans leurs pochettes XOXO" fill sizes="(max-width: 860px) 100vw, 45vw" />
+            <Image src="/produits/stickers-coeurs-detail.jpg" alt="Stickers cœurs dans leurs pochettes XOXO" fill sizes="(max-width: 860px) 100vw, 45vw" />
           </div>
           <div>
             <h2 className="titre" style={{ color: "var(--rose)", fontSize: "clamp(40px, 5vw, 72px)" }}>Emballé avec amour</h2>
