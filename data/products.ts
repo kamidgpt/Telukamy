@@ -76,7 +76,7 @@ export const produits: Produit[] = [
     format: "Format A4",
     description: "Description du print : l’histoire du dessin, les couleurs, l’ambiance.",
     details: ["Format A4 (21 × 29,7 cm)", "Papier 250 g mat"],
-    images: [],
+    images: ["/produits/print-neon.jpg"],
     ajouteLe: "2026-10-01",
   },
   {
